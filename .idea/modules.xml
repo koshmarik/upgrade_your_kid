@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DevelopYourBaby.iml" filepath="$PROJECT_DIR$/DevelopYourBaby.iml" />
+      <module fileurl="file://$PROJECT_DIR$/upgrade_your_kid/upgrade_your_kid.iml" filepath="$PROJECT_DIR$/upgrade_your_kid/upgrade_your_kid.iml" />
+    </modules>
+  </component>
+</project>

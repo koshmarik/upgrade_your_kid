@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Играем вместе</string>
+    <string name="action_favorites">Избранное</string>
+    <string name="action_add_my">Добавить игру</string>
+
+    <string name="action_cat_0">От 0 до 3 месяцев</string>
+    <string name="action_cat_1">От 3 до 6 месяцев</string>
+    <string name="action_cat_2">От 6 до 9 месяцев</string>
+    <string name="action_cat_3">От 9 до 12 месяцев</string>
+    <string name="action_cat_4">От 1 года до 1.5 лет</string>
+    <string name="action_cat_5">От 1.5 до 2 лет</string>
+    <string name="action_cat_6">От 2 до 3 лет</string>
+</resources>
