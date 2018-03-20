@@ -4,19 +4,49 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-import org.mvkoshenkova.upgradeyourkid.persistence.enums.Category;
-
 /**
  * Created by Mariya Koshenkova on 20.03.18.
  */
 @Entity
 public class Game {
     @PrimaryKey
-    public int id;
+    private int id;
     @ColumnInfo(name = "category")
-    public Integer category;
+    private Integer category;
     @ColumnInfo(name = "name")
-    public String name;
+    private String name;
     @ColumnInfo(name = "content")
-    public String content;
+    private String content;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Integer getCategory() {
+        return category;
+    }
+
+    public void setCategory(Integer category) {
+        this.category = category;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }

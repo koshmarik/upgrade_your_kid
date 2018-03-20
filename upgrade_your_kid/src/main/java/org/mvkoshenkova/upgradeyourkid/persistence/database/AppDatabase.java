@@ -5,6 +5,7 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
+import org.mvkoshenkova.upgradeyourkid.persistence.dao.FavoriteDao;
 import org.mvkoshenkova.upgradeyourkid.persistence.dao.GameDao;
 import org.mvkoshenkova.upgradeyourkid.persistence.entity.Game;
 
@@ -17,6 +18,7 @@ public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE;
 
     public abstract GameDao gameDao();
+    public abstract FavoriteDao favoriteDao();
 
     public static AppDatabase getAppDatabase(Context context) {
         if (INSTANCE == null) {
