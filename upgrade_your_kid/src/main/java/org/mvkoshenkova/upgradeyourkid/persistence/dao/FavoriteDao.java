@@ -15,12 +15,12 @@ import java.util.List;
 @Dao
 public interface FavoriteDao {
 
-    @Query("select * from Favorite")
+    @Query("select * from favorite")
     List<Favorite> getAll();
 
     @Insert
     void insertFavorite(Favorite favorite);
 
     @Delete
-    void deleteById(int id);
+    void deleteFavorite(Favorite favorite);
 }

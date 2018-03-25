@@ -17,6 +17,19 @@ public class Game {
     private String name;
     @ColumnInfo(name = "content")
     private String content;
+    @ColumnInfo(name = "comment")
+    private String comment;
+
+    public Game() {
+    }
+
+    public Game(int id, Integer category, String name, String content, String comment) {
+        this.id = id;
+        this.category = category;
+        this.name = name;
+        this.content = content;
+        this.comment = comment;
+    }
 
     public int getId() {
         return id;
@@ -48,5 +61,13 @@ public class Game {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }
