@@ -1,6 +1,5 @@
 package org.mvkoshenkova.upgradeyourkid.ui;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +7,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.mvkoshenkova.upgradeyourkid.BasicApp;
 import org.mvkoshenkova.upgradeyourkid.R;
+import org.mvkoshenkova.upgradeyourkid.persistence.repository.FavoriteRepository;
+import org.mvkoshenkova.upgradeyourkid.persistence.repository.GameRepository;
 
 /**
  * Created by Mariya Koshenkova on 25.03.18.
@@ -16,9 +18,17 @@ import org.mvkoshenkova.upgradeyourkid.R;
 
 public class BaseActivity extends AppCompatActivity {
 
+    BasicApp app;
+    GameRepository gameRepository;
+    FavoriteRepository favoriteRepository;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        app = (BasicApp) getApplicationContext();
+        gameRepository = new GameRepository(app);
+        favoriteRepository = new FavoriteRepository(app);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

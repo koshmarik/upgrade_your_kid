@@ -4,12 +4,14 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+import org.mvkoshenkova.upgradeyourkid.persistence.enums.Category;
+
 /**
  * Created by Mariya Koshenkova on 20.03.18.
  */
 @Entity
 public class Game {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int id;
     @ColumnInfo(name = "category")
     private Integer category;
@@ -26,6 +28,20 @@ public class Game {
     public Game(int id, Integer category, String name, String content, String comment) {
         this.id = id;
         this.category = category;
+        this.name = name;
+        this.content = content;
+        this.comment = comment;
+    }
+
+    public Game(Integer category, String name, String content, String comment) {
+        this.category = category;
+        this.name = name;
+        this.content = content;
+        this.comment = comment;
+    }
+
+    public Game(Category category, String name, String content, String comment) {
+        this.category = category.id;
         this.name = name;
         this.content = content;
         this.comment = comment;

@@ -1,5 +1,6 @@
 package org.mvkoshenkova.upgradeyourkid.persistence.dao;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
@@ -15,8 +16,11 @@ import java.util.List;
 public interface GameDao {
 
     @Query("select * from game where category = :category")
-    List<Game> findAllByCategory(int category);
+    LiveData<List<Game>> findAllByCategory(int category);
 
     @Insert
     void insertGame(Game game);
+
+    @Query("select count(*) from game")
+    int gamesCount();
 }

@@ -7,6 +7,7 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import org.mvkoshenkova.upgradeyourkid.AppExecutors;
 import org.mvkoshenkova.upgradeyourkid.persistence.dao.FavoriteDao;
@@ -46,6 +47,7 @@ public abstract class AppDatabase extends RoomDatabase {
                         super.onCreate(db);
                         executors.diskIO().execute(() -> {
                             // get data for pre-population
+                            Log.d("AppDatabase","pre-populate database");
                             AppDatabase database = AppDatabase.getInstance(appContext, executors);
                             insertData(database);
                             // notify that the database was created and it's ready to be used
@@ -53,7 +55,7 @@ public abstract class AppDatabase extends RoomDatabase {
                         });
                     }
                 })
-                .allowMainThreadQueries() //TODO fix it
+                .allowMainThreadQueries()
                 .build();
     }
 
