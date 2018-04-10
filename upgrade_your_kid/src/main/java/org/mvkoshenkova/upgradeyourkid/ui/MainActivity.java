@@ -14,11 +14,9 @@ public class MainActivity extends BaseActivity {
 
     public static final String TAG_NAME = "MainActivity";
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected final void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState, R.layout.activity_main);
 
-        setContentView(R.layout.activity_main);
 
         FloatingActionButton fab = findViewById(R.id.add_game);
         fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -29,7 +27,7 @@ public class MainActivity extends BaseActivity {
     }
 
     public void openGames(View view) {
-        Intent intent = new Intent(this, GameActivity.class);
+        Intent intent = new Intent(this, GameListActivity.class);
         String categoryTag = view.getTag().toString();
         Log.d(TAG_NAME, "click open games: " + categoryTag);
         intent.putExtra("CATEGORY", categoryTag);

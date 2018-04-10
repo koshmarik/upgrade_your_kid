@@ -16,15 +16,15 @@ import org.mvkoshenkova.upgradeyourkid.persistence.repository.GameRepository;
  * Created by Mariya Koshenkova on 25.03.18.
  */
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     BasicApp app;
     GameRepository gameRepository;
     FavoriteRepository favoriteRepository;
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected final void onCreate(@Nullable Bundle savedInstanceState, int layoutId) {
         super.onCreate(savedInstanceState);
+        setContentView(layoutId);
 
         app = (BasicApp) getApplicationContext();
         gameRepository = new GameRepository(app);
