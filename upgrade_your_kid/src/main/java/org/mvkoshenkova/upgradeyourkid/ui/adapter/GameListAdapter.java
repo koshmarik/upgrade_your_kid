@@ -1,11 +1,14 @@
 package org.mvkoshenkova.upgradeyourkid.ui.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,9 +26,11 @@ import java.util.List;
 public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameListViewHolder> {
 
     private List<Game> gameList;
+    private Animation showGame;
 
-    public GameListAdapter() {
+    public GameListAdapter(Context context) {
         this.gameList = new ArrayList<>();
+        showGame = AnimationUtils.loadAnimation(context, R.anim.show_game);
     }
 
     @Override
@@ -42,9 +47,10 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameLi
         holder.itemView.setOnClickListener(view -> {
             if (holder.gameFullDetails.getVisibility() == View.GONE) {
                 Game game = gameList.get(position);
-                holder.gameDescription.setText(game.getContent());
-                holder.gameComment.setText(game.getComment());
+                holder.gameDescription.setText(Html.fromHtml("<b>Описание: </b>" + game.getContent()));
+                holder.gameComment.setText(Html.fromHtml("<b>Коментарий: </b>" + game.getComment()));
                 holder.gameFullDetails.setVisibility(View.VISIBLE);
+                holder.gameFullDetails.startAnimation(showGame);
             } else {
                 holder.gameFullDetails.setVisibility(View.GONE);
             }
@@ -76,7 +82,6 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameLi
             gameFullDetails = itemView.findViewById(R.id.game_element_content);
             gameDescription = itemView.findViewById(R.id.game_content);
             gameComment = itemView.findViewById(R.id.game_comment);
-            ;
         }
 
     }

@@ -2,7 +2,6 @@ package org.mvkoshenkova.upgradeyourkid.ui;
 
 import android.annotation.SuppressLint;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DividerItemDecoration;
@@ -11,7 +10,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import org.mvkoshenkova.upgradeyourkid.R;
-import org.mvkoshenkova.upgradeyourkid.persistence.entity.Game;
 import org.mvkoshenkova.upgradeyourkid.persistence.enums.Category;
 import org.mvkoshenkova.upgradeyourkid.ui.adapter.GameListAdapter;
 import org.mvkoshenkova.upgradeyourkid.ui.adapter.GameViewModel;
@@ -33,7 +31,7 @@ public class GameListActivity extends BaseActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         //adapter
-        GameListAdapter recyclerViewAdapter = new GameListAdapter();
+        GameListAdapter recyclerViewAdapter = new GameListAdapter(getApplicationContext());
         recyclerView.setAdapter(recyclerViewAdapter);
 
         //divider
