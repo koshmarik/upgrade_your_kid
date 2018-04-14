@@ -16,7 +16,7 @@ import org.mvkoshenkova.upgradeyourkid.persistence.repository.GameRepository;
  * Created by Mariya Koshenkova on 25.03.18.
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity {
 
     BasicApp app;
     GameRepository gameRepository;

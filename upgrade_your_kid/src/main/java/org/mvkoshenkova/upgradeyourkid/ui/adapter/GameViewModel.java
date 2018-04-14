@@ -27,4 +27,8 @@ public class GameViewModel extends AndroidViewModel {
     public LiveData<List<Game>> getGamesByCategory(Category category) {
         return gameRepository.getGamesByCategory(category);
     }
+
+    public Game getGameById(int id) {
+        return gameRepository.getGameById(id);
+    }
 }

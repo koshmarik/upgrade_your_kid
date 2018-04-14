@@ -1,5 +1,6 @@
 package org.mvkoshenkova.upgradeyourkid.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,9 +15,9 @@ public class MainActivity extends BaseActivity {
 
     public static final String TAG_NAME = "MainActivity";
 
-    protected final void onCreate(Bundle savedInstanceState) {
+    @SuppressLint("MissingSuperCall")
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, R.layout.activity_main);
-
 
         FloatingActionButton fab = findViewById(R.id.add_game);
         fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

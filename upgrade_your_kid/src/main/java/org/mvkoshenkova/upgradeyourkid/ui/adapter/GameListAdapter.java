@@ -5,7 +5,9 @@ import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.mvkoshenkova.upgradeyourkid.R;
@@ -37,9 +39,19 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameLi
         Game borrowModel = gameList.get(position);
         holder.gameTitle.setText(borrowModel.getName());
         holder.itemView.setTag(borrowModel);
+        holder.itemView.setOnClickListener(view -> {
+            if (holder.gameFullDetails.getVisibility() == View.GONE) {
+                Game game = gameList.get(position);
+                holder.gameDescription.setText(game.getContent());
+                holder.gameComment.setText(game.getComment());
+                holder.gameFullDetails.setVisibility(View.VISIBLE);
+            } else {
+                holder.gameFullDetails.setVisibility(View.GONE);
+            }
+        });
     }
 
-    public void addItems(List<Game> games){
+    public void addItems(List<Game> games) {
         this.gameList.addAll(games);
         notifyDataSetChanged();
     }
@@ -53,12 +65,20 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameLi
     public class GameListViewHolder extends ViewHolder {
         TextView gameTitle;
         ImageButton favorites;
+        LinearLayout gameFullDetails;
+        TextView gameDescription;
+        TextView gameComment;
 
         public GameListViewHolder(View itemView) {
             super(itemView);
             gameTitle = itemView.findViewById(R.id.game_title);
             favorites = itemView.findViewById(R.id.favorites);
+            gameFullDetails = itemView.findViewById(R.id.game_element_content);
+            gameDescription = itemView.findViewById(R.id.game_content);
+            gameComment = itemView.findViewById(R.id.game_comment);
+            ;
         }
+
     }
 
 }

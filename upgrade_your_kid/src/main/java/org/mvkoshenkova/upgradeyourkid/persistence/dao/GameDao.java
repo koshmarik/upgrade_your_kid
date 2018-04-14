@@ -23,4 +23,7 @@ public interface GameDao {
 
     @Query("select count(*) from game")
     int gamesCount();
+
+    @Query("select * from game where id = :id")
+    Game findGameById(int id);
 }

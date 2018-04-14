@@ -34,4 +34,8 @@ public class GameRepository {
     public int gamesCount(){
         return gameDao.gamesCount();
     }
+
+    public Game getGameById(int id){
+        return gameDao.findGameById(id);
+    }
 }

@@ -21,7 +21,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_main" android:visibility="visible"/>
-    <include layout="@layout/games_list_main" android:visibility="invisible"/>
+    <include layout="@layout/games_list_main" android:visibility="visible"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/add_game"

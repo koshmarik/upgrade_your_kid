@@ -19,5 +19,26 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:src="@android:drawable/btn_star_big_off"
+        android:background="@null"
         android:contentDescription="@string/favorites_icon"/>
+
+    <LinearLayout
+        android:id="@+id/game_element_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/game_title"
+        android:animateLayoutChanges="true"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/game_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"/>
+        <TextView
+            android:id="@+id/game_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"/>
+    </LinearLayout>
 </RelativeLayout>

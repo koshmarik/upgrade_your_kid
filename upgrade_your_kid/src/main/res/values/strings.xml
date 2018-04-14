@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Играем вместе</string>
     <string name="games_activity">Список игр</string>
+    <string name="game_content">Содержание игры</string>
     <string name="action_favorites">Избранное</string>
     <string name="action_add_my">Добавить игру</string>
 
@@ -13,4 +14,7 @@
     <string name="action_cat_6">От 2 до 3 лет</string>
     <string name="favorites_icon">favorites icon</string>
     <string name="game_description">game description</string>
+    <string name="title_activity_custom_game">CustomGameActivity</string>
+    <string name="title_activity_other_game">OtherGameActivity</string>
+    <string name="action_settings">Settings</string>
 </resources>
