@@ -12,7 +12,7 @@ import org.mvkoshenkova.upgradeyourkid.persistence.enums.Category;
 @Entity
 public class Game {
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private Integer id;
     @ColumnInfo(name = "category")
     private Integer category;
     @ColumnInfo(name = "name")
@@ -25,7 +25,7 @@ public class Game {
     public Game() {
     }
 
-    public Game(int id, Integer category, String name, String content, String comment) {
+    public Game(Integer id, Integer category, String name, String content, String comment) {
         this.id = id;
         this.category = category;
         this.name = name;
@@ -47,11 +47,11 @@ public class Game {
         this.comment = comment;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

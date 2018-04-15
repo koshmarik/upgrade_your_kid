@@ -19,10 +19,10 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, R.layout.activity_main);
 
-        FloatingActionButton fab = findViewById(R.id.add_game);
+        /*FloatingActionButton fab = findViewById(R.id.add_game);
         fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show());
-
+*/
         int count = gameRepository.gamesCount();
         Log.d(TAG_NAME, "games count: " + count);
     }

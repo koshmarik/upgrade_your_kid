@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.mvkoshenkova.upgradeyourkid.R;
+import org.mvkoshenkova.upgradeyourkid.persistence.entity.Favorite;
 import org.mvkoshenkova.upgradeyourkid.persistence.entity.Game;
 
 import java.util.ArrayList;
@@ -26,10 +27,12 @@ import java.util.List;
 public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameListViewHolder> {
 
     private List<Game> gameList;
+    private List<Integer> favoriteGameIdList;
     private Animation showGame;
 
     public GameListAdapter(Context context) {
         this.gameList = new ArrayList<>();
+        this.favoriteGameIdList = new ArrayList<>();
         showGame = AnimationUtils.loadAnimation(context, R.anim.show_game);
     }
 
@@ -41,9 +44,9 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameLi
 
     @Override
     public void onBindViewHolder(GameListViewHolder holder, int position) {
-        Game borrowModel = gameList.get(position);
-        holder.gameTitle.setText(borrowModel.getName());
-        holder.itemView.setTag(borrowModel);
+        Game gameModel = gameList.get(position);
+        holder.gameTitle.setText(gameModel.getName());
+        holder.itemView.setTag(gameModel);
         holder.itemView.setOnClickListener(view -> {
             if (holder.gameFullDetails.getVisibility() == View.GONE) {
                 Game game = gameList.get(position);
@@ -55,11 +58,27 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameLi
                 holder.gameFullDetails.setVisibility(View.GONE);
             }
         });
+        if(favoriteGameIdList.contains(gameModel.getId()))
+            holder.favorites.setImageResource(android.R.drawable.btn_star_big_on);
+        holder.favorites.setOnClickListener(b -> {
+            if(favoriteGameIdList.contains(gameModel.getId())) {
+                favoriteGameIdList.remove(gameModel.getId());
+                holder.favorites.setImageResource(android.R.drawable.btn_star_big_off);
+            } else {
+                favoriteGameIdList.add(gameModel.getId());
+                holder.favorites.setImageResource(android.R.drawable.btn_star_big_on);
+            }
+        });
     }
 
     public void addItems(List<Game> games) {
         this.gameList.addAll(games);
         notifyDataSetChanged();
+    }
+
+    public void addFavoritesItems(List<Favorite> favorites) {
+        for(Favorite favorite:favorites)
+            favoriteGameIdList.add(favorite.getGameId());
     }
 
     @Override
