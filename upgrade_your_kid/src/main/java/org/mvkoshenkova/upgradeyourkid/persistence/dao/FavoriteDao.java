@@ -1,5 +1,6 @@
 package org.mvkoshenkova.upgradeyourkid.persistence.dao;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -16,11 +17,11 @@ import java.util.List;
 public interface FavoriteDao {
 
     @Query("select * from favorite")
-    List<Favorite> getAll();
+    LiveData<List<Favorite>> getAll();
 
     @Insert
     void insertFavorite(Favorite favorite);
 
-    @Delete
-    void deleteFavorite(Favorite favorite);
+    @Query("delete from favorite where game_id = :gameId")
+    void deleteFavoriteByGameId(int gameId);
 }

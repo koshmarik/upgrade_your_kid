@@ -44,10 +44,15 @@ public class GameListActivity extends BaseActivity {
         Log.d("GameListActivity", "open for " + categoryTag);
         Category category = Category.valueOf(categoryTag);
 
+        //prepare data
         GameViewModel viewModel = ViewModelProviders.of(this).get(GameViewModel.class);
 
+        viewModel.getFavorites().observe(GameListActivity.this,
+                recyclerViewAdapter::addFavoritesItems);
         viewModel.getGamesByCategory(category).observe(GameListActivity.this,
                 recyclerViewAdapter::addItems);
+
+        recyclerViewAdapter.setViewModel(viewModel);
 
     }
 }

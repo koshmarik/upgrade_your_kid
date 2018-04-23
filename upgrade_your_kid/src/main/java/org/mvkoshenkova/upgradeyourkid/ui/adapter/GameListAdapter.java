@@ -1,5 +1,6 @@
 package org.mvkoshenkova.upgradeyourkid.ui.adapter;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
@@ -12,10 +13,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import org.mvkoshenkova.upgradeyourkid.BasicApp;
 import org.mvkoshenkova.upgradeyourkid.R;
 import org.mvkoshenkova.upgradeyourkid.persistence.entity.Favorite;
 import org.mvkoshenkova.upgradeyourkid.persistence.entity.Game;
+import org.mvkoshenkova.upgradeyourkid.ui.GameListActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +33,11 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameLi
     private List<Game> gameList;
     private List<Integer> favoriteGameIdList;
     private Animation showGame;
+    private Context context;
+    private GameViewModel vm;
 
     public GameListAdapter(Context context) {
+        this.context = context;
         this.gameList = new ArrayList<>();
         this.favoriteGameIdList = new ArrayList<>();
         showGame = AnimationUtils.loadAnimation(context, R.anim.show_game);
@@ -62,11 +69,15 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameLi
             holder.favorites.setImageResource(android.R.drawable.btn_star_big_on);
         holder.favorites.setOnClickListener(b -> {
             if(favoriteGameIdList.contains(gameModel.getId())) {
+                vm.deleteFavorite(gameModel.getId());
                 favoriteGameIdList.remove(gameModel.getId());
                 holder.favorites.setImageResource(android.R.drawable.btn_star_big_off);
+                Toast.makeText(context, "Игра удалена из избранного", Toast.LENGTH_SHORT).show();
             } else {
+                vm.insertFavorite(gameModel.getId());
                 favoriteGameIdList.add(gameModel.getId());
                 holder.favorites.setImageResource(android.R.drawable.btn_star_big_on);
+                Toast.makeText(context, "Игра добавлена в избранное", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -86,6 +97,9 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameLi
         return gameList.size();
     }
 
+    public void setViewModel(GameViewModel vm) {
+        this.vm = vm;
+    }
 
     public class GameListViewHolder extends ViewHolder {
         TextView gameTitle;
@@ -101,6 +115,7 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.GameLi
             gameFullDetails = itemView.findViewById(R.id.game_element_content);
             gameDescription = itemView.findViewById(R.id.game_content);
             gameComment = itemView.findViewById(R.id.game_comment);
+
         }
 
     }

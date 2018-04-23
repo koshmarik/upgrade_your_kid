@@ -14,6 +14,13 @@ public class Favorite {
     @ColumnInfo(name = "game_id")
     private int gameId;
 
+    public Favorite() {
+    }
+
+    public Favorite(int gameId) {
+        this.gameId = gameId;
+    }
+
     public int getId() {
         return id;
     }
