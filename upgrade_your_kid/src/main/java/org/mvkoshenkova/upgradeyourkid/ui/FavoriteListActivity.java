@@ -1,4 +1,4 @@
-package org.mvkoshenkova.upgradeyourkid;
+package org.mvkoshenkova.upgradeyourkid.ui;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import org.mvkoshenkova.upgradeyourkid.R;
 import org.mvkoshenkova.upgradeyourkid.ui.BaseActivity;
 
 public class FavoriteListActivity extends BaseActivity {

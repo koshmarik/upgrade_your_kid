@@ -1,10 +1,8 @@
 package org.mvkoshenkova.upgradeyourkid.ui;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
@@ -15,9 +13,12 @@ public class MainActivity extends BaseActivity {
 
     public static final String TAG_NAME = "MainActivity";
 
-    @SuppressLint("MissingSuperCall")
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState, R.layout.activity_main);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     public void openGames(View view) {

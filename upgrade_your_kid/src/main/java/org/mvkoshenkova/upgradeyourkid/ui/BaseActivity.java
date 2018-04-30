@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.mvkoshenkova.upgradeyourkid.BasicApp;
-import org.mvkoshenkova.upgradeyourkid.FavoriteListActivity;
 import org.mvkoshenkova.upgradeyourkid.R;
 import org.mvkoshenkova.upgradeyourkid.persistence.repository.FavoriteRepository;
 import org.mvkoshenkova.upgradeyourkid.persistence.repository.GameRepository;

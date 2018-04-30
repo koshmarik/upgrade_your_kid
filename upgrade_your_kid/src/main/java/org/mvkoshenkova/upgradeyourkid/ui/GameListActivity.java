@@ -1,12 +1,11 @@
 package org.mvkoshenkova.upgradeyourkid.ui;
 
-import android.annotation.SuppressLint;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import org.mvkoshenkova.upgradeyourkid.R;
@@ -20,10 +19,12 @@ import org.mvkoshenkova.upgradeyourkid.ui.adapter.GameViewModel;
 
 public class GameListActivity extends BaseActivity {
 
-
-    @SuppressLint("MissingSuperCall")
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState, R.layout.games_list_main);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_game_list);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         RecyclerView recyclerView = findViewById(R.id.games_list);
         //layoutManager

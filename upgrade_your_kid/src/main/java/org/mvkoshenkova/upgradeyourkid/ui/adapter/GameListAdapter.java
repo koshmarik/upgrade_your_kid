@@ -1,6 +1,5 @@
 package org.mvkoshenkova.upgradeyourkid.ui.adapter;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
@@ -15,11 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.mvkoshenkova.upgradeyourkid.BasicApp;
 import org.mvkoshenkova.upgradeyourkid.R;
 import org.mvkoshenkova.upgradeyourkid.persistence.entity.Favorite;
 import org.mvkoshenkova.upgradeyourkid.persistence.entity.Game;
-import org.mvkoshenkova.upgradeyourkid.ui.GameListActivity;
 
 import java.util.ArrayList;
 import java.util.List;
