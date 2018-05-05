@@ -8,4 +8,11 @@
     tools:context="org.mvkoshenkova.upgradeyourkid.ui.FavoriteListActivity"
     tools:showIn="@layout/activity_favorite_list">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/favorite_game_list"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" >
+
+    </android.support.v7.widget.RecyclerView>
+
 </android.support.constraint.ConstraintLayout>

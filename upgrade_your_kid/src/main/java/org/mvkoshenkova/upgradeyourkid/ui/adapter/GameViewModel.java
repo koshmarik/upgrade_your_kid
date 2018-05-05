@@ -6,6 +6,7 @@ import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
 import org.mvkoshenkova.upgradeyourkid.persistence.entity.Favorite;
+import org.mvkoshenkova.upgradeyourkid.persistence.entity.FavoriteGame;
 import org.mvkoshenkova.upgradeyourkid.persistence.entity.Game;
 import org.mvkoshenkova.upgradeyourkid.persistence.enums.Category;
 import org.mvkoshenkova.upgradeyourkid.persistence.repository.FavoriteRepository;
@@ -46,5 +47,9 @@ public class GameViewModel extends AndroidViewModel {
 
     public void deleteFavorite(int gameId){
         favoriteRepository.deleteFavorite(gameId);
+    }
+
+    public LiveData<List<FavoriteGame>> getAllFavoriteGames(){
+        return favoriteRepository.getAllFavoriteGames();
     }
 }

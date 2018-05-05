@@ -6,6 +6,7 @@ import android.arch.lifecycle.LiveData;
 import org.mvkoshenkova.upgradeyourkid.BasicApp;
 import org.mvkoshenkova.upgradeyourkid.persistence.dao.FavoriteDao;
 import org.mvkoshenkova.upgradeyourkid.persistence.entity.Favorite;
+import org.mvkoshenkova.upgradeyourkid.persistence.entity.FavoriteGame;
 
 import java.util.List;
 
@@ -31,5 +32,9 @@ public class FavoriteRepository {
 
     public void deleteFavorite(int gameId){
         favoriteDao.deleteFavoriteByGameId(gameId);
+    }
+
+    public LiveData<List<FavoriteGame>> getAllFavoriteGames(){
+        return favoriteDao.getAllFavoriteGames();
     }
 }
