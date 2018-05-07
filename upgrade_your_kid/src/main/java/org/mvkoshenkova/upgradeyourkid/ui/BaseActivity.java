@@ -3,6 +3,7 @@ package org.mvkoshenkova.upgradeyourkid.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -19,17 +20,19 @@ import org.mvkoshenkova.upgradeyourkid.persistence.repository.GameRepository;
 
 public class BaseActivity extends AppCompatActivity {
 
-    BasicApp app;
-    GameRepository gameRepository;
-    FavoriteRepository favoriteRepository;
+    private BasicApp app;
+    private GameRepository gameRepository;
+    private FavoriteRepository favoriteRepository;
+    private AboutUsDialogFragment aboutUsDialogFragment;
 
-    protected final void onCreate(@Nullable Bundle savedInstanceState, int layoutId) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(layoutId);
 
         app = (BasicApp) getApplicationContext();
         gameRepository = new GameRepository(app);
         favoriteRepository = new FavoriteRepository(app);
+        aboutUsDialogFragment = new AboutUsDialogFragment();
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -50,6 +53,9 @@ public class BaseActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.action_add_my:
+                return true;
+            case R.id.action_about:
+                aboutUsDialogFragment.show(getFragmentManager(), "about us");
                 return true;
         }
 
