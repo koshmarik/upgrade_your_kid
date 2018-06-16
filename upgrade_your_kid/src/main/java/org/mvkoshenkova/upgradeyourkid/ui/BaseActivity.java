@@ -52,8 +52,6 @@ public class BaseActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, FavoriteListActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.action_add_my:
-                return true;
             case R.id.action_about:
                 aboutUsDialogFragment.show(getFragmentManager(), "about us");
                 return true;
