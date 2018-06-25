@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Играем вместе</string>
+    <string name="app_name">Играем с пользой</string>
     <string name="games_activity">Список игр</string>
     <string name="game_content">Содержание игры</string>
     <string name="action_favorites">Избранное</string>
