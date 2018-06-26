@@ -1,6 +1,7 @@
 package org.mvkoshenkova.upgradeyourkid.ui;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,6 +20,8 @@ import org.mvkoshenkova.upgradeyourkid.ui.adapter.FavoriteListAdapter;
 import org.mvkoshenkova.upgradeyourkid.ui.adapter.GameListAdapter;
 import org.mvkoshenkova.upgradeyourkid.ui.adapter.GameViewModel;
 
+import java.util.Objects;
+
 public class FavoriteListActivity extends BaseActivity {
 
     @Override
@@ -27,6 +30,8 @@ public class FavoriteListActivity extends BaseActivity {
         setContentView(R.layout.activity_favorite_list);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         RecyclerView recyclerView = findViewById(R.id.favorite_game_list);
         //layoutManager
@@ -49,8 +54,14 @@ public class FavoriteListActivity extends BaseActivity {
                 recyclerViewAdapter::addFavoriteGameItems);
 
         recyclerViewAdapter.setViewModel(viewModel);
+    }
 
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        return true;
     }
 
 }
