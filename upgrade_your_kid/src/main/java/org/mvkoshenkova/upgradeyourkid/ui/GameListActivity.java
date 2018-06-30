@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.widget.TextView;
 
 import org.mvkoshenkova.upgradeyourkid.R;
 import org.mvkoshenkova.upgradeyourkid.persistence.enums.Category;
@@ -44,6 +45,10 @@ public class GameListActivity extends BaseActivity {
         String categoryTag = getIntent().getStringExtra("CATEGORY");
         Log.d("GameListActivity", "open for " + categoryTag);
         Category category = Category.valueOf(categoryTag);
+
+        //category description
+        TextView categoryDesc = findViewById(R.id.category_description);
+        categoryDesc.setText(category.description);
 
         //prepare data
         GameViewModel viewModel = ViewModelProviders.of(this).get(GameViewModel.class);

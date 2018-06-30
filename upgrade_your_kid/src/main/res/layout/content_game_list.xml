@@ -8,11 +8,32 @@
     tools:context="org.mvkoshenkova.upgradeyourkid.ui.GameListActivity"
     tools:showIn="@layout/activity_game_list">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/games_list"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_width="match_parent" >
+        android:orientation="vertical">
 
-    </android.support.v7.widget.RecyclerView>
+        <TextView
+            android:id="@+id/category_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="16sp"
+            android:shadowColor="#dde0e1"
+            android:shadowRadius="2"
+            android:shadowDx="1"
+            android:shadowDy="1"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/games_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/category_description"
+            android:layout_alignParentEnd="true">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+
 
 </android.support.constraint.ConstraintLayout>
